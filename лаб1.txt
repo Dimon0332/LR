@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int M = 10;                
+const int a = 3, b = 3;            
+
+void zadanie1() {
+	int array[M];
+	cout << "введите массив: " << endl; 
+	for (int i = 0; i < M; i++) 
+		cin >> array[i];
+	
+	for (int i = 0; i < M; i++) 
+	{
+		if (array[i] % 2 == 0)    
+			array[i] = 0;       
+	}
+	cout << "преобразованный массив: "; 
+	for (int i = 0; i < M; i++)
+		cout << array[i] << " ";
+	cout << endl;
+}
+
+void zadanie2() {
+	string str;
+	char simvol; 
+	cout << "ВВЕДИТЕ СИМВОЛ НА АНГЛ. РАСКЛАДКЕ" << endl;
+	cin >> simvol; 
+	if (isalpha(simvol)) 
+		cout << "введена буква" << endl;  
+	else (cout << "введена не буква" << endl);
+	do {
+		cout << "Введите строку" << endl; 
+	} while (!getline(cin, str));
+	cout << "строка введена" << endl;
+	
+	for (int i = 0; i < str[i] != '\0'; i++) {
+		if (str[i] == simvol) {
+			cout << "Символ " << simvol << " стоит на " << i + 1 << " месте"; break; 
+		}
+	}
+	cout << endl;
+}
+
+
+void zadanie3() {
+	int massiv[a][b];   
+	int A;
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
+			cout << "Введите значения массива:"; 
+			cin >> massiv[i][j];  
+		}
+	}
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
+			cout << massiv[i][j] << " ";  
+		}
+		cout << endl;
+	}
+	
+	A = (massiv[0][0] * massiv[1][1] * massiv[2][2]) + (massiv[2][0] * massiv[0][1] * massiv[1][2]) + (massiv[1][0] * massiv[2][1] * massiv[0][2]) - (massiv[2][0] * massiv[1][1] * massiv[0][2]) - (massiv[0][0] * massiv[2][1] * massiv[1][2]) - (massiv[1][0] * massiv[0][1] * massiv[2][2]);
+	cout << "определитель = " << A << endl;  
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	cout << "Задание 1:" << endl;
+	zadanie1();
+	cout << "Задание 2:" << endl;
+	zadanie2();
+	cout << "Задание 3:" << endl;
+	zadanie3();
+}
